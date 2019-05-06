@@ -21,3 +21,10 @@ code {
 h1 {
   font-family: 'Gugi', cursive;
 }
+
+#root {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: rgb(154, 145, 158, .5);
+}
