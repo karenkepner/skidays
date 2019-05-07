@@ -5,13 +5,18 @@ import App from './App';
 
 // import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
 let skiData = {
   total: 19,
   powder: 10,
   fatbiking: 20,
   goal: 35
+}
+
+class AddDayButton extends React.Component {
+  render() {
+    return (<button id="addDayButton">Record another Ski Day!</button>)
+  }  
 }
 
 class SkiDayCounter extends React.Component {
@@ -38,6 +43,7 @@ class SkiDayCounter extends React.Component {
         <div>
           <p>Goal Progress: {this.calcGoalProgress(this.props.total, this.props.goal)}</p>
         </div>
+        <AddDayButton />
       </section>
     )
   }
