@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 
 // import * as serviceWorker from './serviceWorker';
 
@@ -14,9 +14,12 @@ let skiData = {
 }
 
 class AddDayButton extends React.Component {
+  handleEvent() {
+    console.log('hippo');
+  }
   render() {
-    return (<button id="addDayButton">Record another Ski Day!</button>)
-  }  
+    return (<button id="addDayButton" onClick={this.handleEvent}>Record another Ski Day!</button>);
+  }
 }
 
 class SkiDayCounter extends React.Component {
