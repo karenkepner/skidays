@@ -15,7 +15,8 @@ let skiData = {
 
 class AddDayButton extends React.Component {
   handleEvent() {
-    console.log('hippo');
+    skiData.total++;
+    console.log("Total: ", skiData.total);
   }
   render() {
     return (<button id="addDayButton" onClick={this.handleEvent}>Record another Ski Day!</button>);
@@ -42,6 +43,9 @@ class SkiDayCounter extends React.Component {
         </div>
         <div>
           <p>Fatbike Days: {this.props.fatbiking}</p>
+        </div>
+        <div>
+          <p>Goal: {this.props.goal}</p>
         </div>
         <div>
           <p>Goal Progress: {this.calcGoalProgress(this.props.total, this.props.goal)}</p>
