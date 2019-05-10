@@ -7,22 +7,11 @@ import './index.css';
 
 
 let skiData = {
-  total: 19,
-  powder: 10,
+  total: 20,
+  powder: 7,
   fatbiking: 20,
   goal: 35
 }
-
-// class AddDayButton extends React.Component {
-//   handleEvent() {
-//     skiData.total++;
-//     console.log("Total: ", skiData.total);
-//     //need to re-render the data in total. how?
-//   }
-//   render() {
-//     return (<button id="addDayButton" onClick={this.handleEvent}>Record another Ski Day!</button>);
-//   }
-// }
 
 class SkiDayCounter extends React.Component {
   constructor(props) {
@@ -36,6 +25,7 @@ class SkiDayCounter extends React.Component {
     this.addSkiDay = this.addSkiDay.bind(this);
     this.addPowderDay = this.addPowderDay.bind(this);
     this.addFatDay = this.addFatDay.bind(this);
+    this.updateGoal = this.updateGoal.bind(this);
   }
   getPercent = decimal => {
     return Math.round(decimal * 100) + '%'
@@ -51,31 +41,35 @@ class SkiDayCounter extends React.Component {
     this.setState({total: this.state.total + 1});
   }
   addFatDay() {
-    this.setState({fatbiking: this.state.fatbiking + 1})
+    this.setState({fatbiking: this.state.fatbiking + 1});
+  }
+  updateGoal() {
+    let newGoal = prompt("Enter your new goal: ")
+    this.setState({goal: newGoal});
   }
   render() {
     return (
       <section>
         <h1>Ski Day Counter</h1>
         <div>
-          <p>Total Days: {this.state.total}</p>
+          <h2>Total Days: {this.state.total}</h2>
         </div>
         <div>
-          <p>Powder Days: {this.state.powder}</p>
+          <h2>Powder Days: {this.state.powder}</h2>
         </div>
         <div>
-          <p>Fatbike Days: {this.state.fatbiking}</p>
+          <h2>Fatbike Days: {this.state.fatbiking}</h2>
         </div>
         <div>
-          <p>Goal: {this.state.goal}</p>
+          <h2>Goal: {this.state.goal}</h2>
         </div>
         <div>
-          <p>Goal Progress: {this.calcGoalProgress(this.state.total, this.state.goal)}</p>
+          <h2>Goal Progress: {this.calcGoalProgress(this.state.total, this.state.goal)}</h2>
         </div>
         <button id="addSki" onClick={this.addSkiDay}>Record another Ski Day!</button>
         <button id="addPowder" onClick={this.addPowderDay}>Record another Powder Day!</button>
         <button id="addFat" onClick={this.addFatDay}>Record another Fatbike Day!</button>
-        <button id="updateGoal" onClick={this.handleEvent}>Update your season goal.</button>
+        <button id="updateGoal" onClick={this.updateGoal}>Update your season goal.</button>
       </section>
     )
   }
